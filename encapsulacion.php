@@ -29,6 +29,10 @@ class Animal
           throw new Exception("La edad debe ser un numero positivo");          
         }         
     }
+
+    public function saludar(){
+      return $this->getNombre() . " dice hola";
+    }
 }
 
 $animal = new Animal("Frey",6);
@@ -38,3 +42,13 @@ $animal = new Animal("Frey",6);
 
 echo "El nombre del animal es " . $animal->getNombre() . PHP_EOL;
 echo "La edad de " . $animal->getNombre() . " es " . $animal->getEdad() . PHP_EOL;
+
+$animal->setNombre("Pepino");
+
+try {
+  $animal->setEdad(2);
+} catch (Exception $e) {
+  echo "Error: " . $e->getMessage();
+}
+
+echo $animal->saludar();
